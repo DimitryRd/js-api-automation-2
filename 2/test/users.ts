@@ -39,6 +39,7 @@ describe("User", function () {
         )
             .method("POST")
             .body({
+                username: faker.internet.userName(), // added this line since there was a matcher error
                 email: "test@test.com",
                 password: "123456"
             })
@@ -113,6 +114,7 @@ describe("User", function () {
                 "templatesBoardId",
                 "cardTemplatesSwimlaneId",
                 "listTemplatesSwimlaneId",
+                "starredBoards", // fixed assertion error
                 "boardTemplatesSwimlaneId"
             );
         expect(usrDetails.emails, usrDetails).to.be.an("array").that.is.not
